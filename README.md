@@ -69,6 +69,7 @@
 * 如果要做一个按住屏幕右侧滑动调整声音功能如何处理  
 ...  
 特殊公司做这方面相关的会问的多
+
 ---
 ###四大组件 
 >Android四大组件分别为activity、service、content provider、broadcast receiver。
