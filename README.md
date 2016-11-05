@@ -306,6 +306,7 @@ public void load()
 
 要往SDCard存放文件，程序必须先判断手机是否装有SDCard，并且可以进行读写。
 注意：访问SDCard必须在AndroidManifest.xml中加入访问SDCard的权限。
+
 ```
 if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){ 
  File sdCardDir = Environment.getExternalStorageDirectory();//获取SDCard目录 
