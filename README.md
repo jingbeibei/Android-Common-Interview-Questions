@@ -791,5 +791,6 @@ public class BootCompleteReceiver extends BroadcastReceiver {
 * 2.**bindService（Intent service ,ServiceConnection conn ,Int flags）** 参数service是指要绑定的Service，conn是ServiceConnection对象，这个对象不能为null，flags为binding的类型，可以为0。 这种方式开启的Service会一直运行，直到没有组件绑定这个Service的时候系统才会停止Service。一般情况下，一个组件在不需要Service服务后要调用**unBindService（ServiceConnection conn）**来解绑Service。
 
 **区别：**
+
 * startService：生命周期与调用者不同，启动后若调用者未调用stopService而直接退出，Service仍会运行
 * bindService：生命周期与调用者绑定（Service的生命周期依附于Context），调用者一旦全部退出，Service就会调用unBind->onDestroy
