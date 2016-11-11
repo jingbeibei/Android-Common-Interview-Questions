@@ -509,16 +509,18 @@ onResume()是onPause()（通常是当前的acitivty被暂停了，比如被另�
 ---
 ###Fragment生命周期 Activity和Fragment区别
 **Activity生命周期图：**
-```onCreate()：创建时调用
+```
+onCreate()：创建时调用
 onStart()：可见时调用
 onResume()：获取焦点时用
 onPause()：失去焦点时调用
 onStop()：不可见时调用
 onRestart()：重启时调用
-onDestory()：销毁时调用```
+onDestory()：销毁时调用
+```
 
 ![activity.png](http://upload-images.jianshu.io/upload_images/2314135-57591e25232d1410.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-**Fragment生命周期：**
+** Fragment生命周期：**
 ```
 onAttach()：和宿主Activity建立关联时调用
 onCreate()：创建时调用
@@ -534,7 +536,8 @@ onDetach()：与宿主Activity解除关联时调用
 
 ```
 ![Fragment.png](http://upload-images.jianshu.io/upload_images/2314135-156a9aaa667b4ab5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-**Fragment与Activity生命周期对比图：**
+
+** Fragment与Activity生命周期对比图：**
 
 ![Paste_Image.png](http://upload-images.jianshu.io/upload_images/2314135-bae480de789f439c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 **Fragment生命周期分析：**
