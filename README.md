@@ -546,7 +546,7 @@ onDetach()：与宿主Activity解除关联时调用
 
 ![Paste_Image.png](http://upload-images.jianshu.io/upload_images/2314135-bae480de789f439c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-**Fragment生命周期分析：**
+** Fragment生命周期分析：**
 1. 当一个fragment被创建的时候，它会经历以下状态.
 onAttach()
 onCreate()
@@ -582,7 +582,7 @@ onDetach() —— 当fragment和activity分离的时候，调用这个方法。
 
 一旦activity进入resumed状态（也就是running状态），你就可以自由地添加和删除fragment了。因此，只有当activity在resumed状态时，fragment的生命周期才能独立的运转，其它时候是依赖于activity的生命周期变化的。
 
-**Activity生命周期分析：**
+** Activity生命周期分析：**
 上面7个生命周期方法分别在4个阶段按着一定的顺序进行调用，这4个阶段如下：
  开始Activity：在这个阶段依次执行3个生命周期方法：onCreate、onStart和onResume。
  Activity失去焦点：如果在Activity获得焦点的情况下进入其他的Activity或应用程序，这时当前的Activity会失去焦点。在这一阶段，会依次执行onPause和onStop方法。
@@ -599,6 +599,7 @@ onStop -> onRestart -> onStart -> onResume -> onPause -> onStop
  在图Activity生命周期里可以看出，系统在终止应用程序进程时会调用onPause、onStop和onDesktroy方法。而onPause方法排在了最前面，也就是说，Activity在失去焦点时就可能被终止进程，而onStop和onDestroy方法可能没有机会执行。因此，应该在onPause方法中保存当前Activity状态，这样才能保证在任何时候终止进程时都可以执行保存Activity状态的代码.
 
 ---
+
 ###页面之间如何传递数据, 如果传递一个对象如何处理, 如何传递集合
 * 1.简单数据
    通过intent.putExtra("key","value")方法，在第二个界面中用getIntent()方法获取启动当前activity的intent，然后调用intent的getStringExtra()方法来获取传的数据，如果传递的是整型，则用getIntExtra()方法来获取，如果传的是布尔型，则用getBooleanExtra()方法，以此类推。
@@ -643,6 +644,7 @@ Parcelable方式的实现原理是将一个完整的对象进行分解，而分�
 * dp：就是dip(device independent pixels)设备独立像素，与密度无关的像素。一种基于屏幕密度的抽象单位。在每英寸160点(屏幕密度为160)的显示器上，1dp=1px；
 * px：屏幕的实际像素。一般不用它作为单位，因为它会在不同的设备显示相同的效果。
 * sp：与刻度无关的像素。主要用于定义字体的大小，而从来不再layout上使用。与dp相似，但是可以根据用户的字体大小首选项进行缩放，即sp除了与密度无关外，还与scale(缩放)无关。当屏幕密度为160时，1dp=1sp=1px；
+
 ---
 
 ###gravity和layout_gravity的区别
@@ -685,8 +687,9 @@ That's all.
     类[sendMessage](file:///D:/android/android-sdk-windows/docs/reference/android/os/Handler.html#sendMessage(android.os.Message))([Message](file:///D:/android/android-sdk-windows/docs/reference/android/os/Message.html) msg)方法实现发送消息的操作。在初始化Handler对象时重写的handleMessage()方法是用来来接收Messgae并进行相关操作的。
 2.传递Runnable对象，用于通过Handler绑定的消息队列，安排不同操作的执行顺序。
     Handler对象在进行初始化的时候，会默认的自动绑定消息队列。利用类post方法，可以将Runnable对象发送到消息队列中，按照队列的机制按顺序执行不同的Runnable对象中的run方法。
+    
 ---
-###什么的ANR, 如何避免
+###什么是ANR, 如何避免
 **ANR的定义**：在Android上，如果你的应用程序有一段时间响应不够灵敏，系统会向用户显示一个对话框，这个对话框称作**应用程序无响应**（ANR：ApplicationNotResponding）对话框。用户可以选择让程序继续运行，但是，他们在使用你的应用程序时，并不希望每次都要处理这个对话框。因此，在程序里对响应性能的设计很重要，这样，系统不会显示ANR给用户。
 
  **如何避免：**
