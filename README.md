@@ -485,7 +485,9 @@ Android是单线程模型，我们创建的Service、Activity以及Broadcast均�
   12. Looper对象用于循环读取消息队列的值，并回调Handler对象中定义的消息处理函数，同时，Looper对象还可以将读取的消息从队列中移除，执行完一次消息处理后，再循环从消息队列中读取下一个消息，直到Looper对象调用stop()方法退出循环。如果消息队列中没有消息，Looper对象则会等待，线程不会退出。
   13. 为了更方便地从线程中使用Looper功能，Android又定义了一个HandlerThread类，该类基于Thread，并且内部已经添加了Looper功能，使用者只需重写其onLooperPrepared ()方法，添加具体应用代码即可。Android中一个Activity就是一个线程，多个Activity之间的切换是在同一个线程中。
 文／SingleoD（简书作者）[原文链接](http://www.jianshu.com/p/7307492f7e89)
+
 ---
+
 ###Activity生命周期 onStart onResume区别
 首先了解Activity的四种状态
 Running状态：一个新的Activity启动入栈后，它在屏幕最前端，处于栈的最顶端，此时它处于可见并可和用户交互的激活状态。Paused状态：当Activity被另一个透明或者Dialog样式的Activity覆盖时的状态。此时它依然与窗口管理器保持连接，系统继续维护其内部状态，它仍然可见，但它已经失去了焦点，故不可与用户交互。Stopped状态：当Activity不可见时，Activity处于Stopped状态。当Activity处于此状态时，一定要保存当前数据和当前的UI状态，否则一旦Activity退出或关闭时，当前的数据和UI状态就丢失了。Killed状态：Activity被杀掉以后或者被启动以前，处于Killed状态。这是Activity已从Activity堆栈中移除，需要重新启动才可以显示和使用。
@@ -507,6 +509,7 @@ onResume()是onPause()（通常是当前的acitivty被暂停了，比如被另�
 ![Paste_Image.png](http://upload-images.jianshu.io/upload_images/2314135-95b9dc3f4c620691.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ---
+
 ###Fragment生命周期 Activity和Fragment区别
 **Activity生命周期图：**
 ```
