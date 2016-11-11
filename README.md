@@ -584,6 +584,7 @@ onDetach() —— 当fragment和activity分离的时候，调用这个方法。
 一旦activity进入resumed状态（也就是running状态），你就可以自由地添加和删除fragment了。因此，只有当activity在resumed状态时，fragment的生命周期才能独立的运转，其它时候是依赖于activity的生命周期变化的。
 
 ** Activity生命周期分析：**
+
 上面7个生命周期方法分别在4个阶段按着一定的顺序进行调用，这4个阶段如下：
  开始Activity：在这个阶段依次执行3个生命周期方法：onCreate、onStart和onResume。
  Activity失去焦点：如果在Activity获得焦点的情况下进入其他的Activity或应用程序，这时当前的Activity会失去焦点。在这一阶段，会依次执行onPause和onStop方法。
@@ -657,6 +658,7 @@ Parcelable方式的实现原理是将一个完整的对象进行分解，而分�
 2. 对于vertical 的LinearLayout，把android:layout_gravity设为left、center、right、center_horizontal才有意义；
 3. RelativeLayout对android:layout_gravity不起作用
 4. center已经包含了center_vertical和center_horizontal两种意义了，用的时候不要忘了
+
 ---
 ###margin和padding的区别
 - margin是外边距
@@ -683,9 +685,11 @@ That's all.
    由于Handler是运行在主线程当中(UI线程中)，它与子线程主要是通过Message对象来传递数据，这个时候，Handler就承担着接收子线程传过来的(子线程用sedMessage()方法传递)Message对象(里面包含数据)，把这些消息放入主线程队列中，配合主线程进行更新UI。
    注意：Handler 对象初始化后，就默认与对它初始化的进程的消息队列绑定，因此可以利用Handler所包含的消息队列，制定一些操作的顺序。
 * Handler的主要作用
+
 1.传递Message，用于接收子线程发送过来的数据, 并用此数据配合主线程更新UI。
     在Android中，对于UI的操作通常需要放在主线程中进行操作。如果在子线程中有关于UI的操作，那么就需要把数据消息作为一个Message对象发送到消息队列中，然后，由Handler中的handlerMessge()方法处理传过来的数据信息，并操作UI。当然，Handler对象是在主线程中初始化的，它需要绑定在主线程的消息队列中。
     类[sendMessage](file:///D:/android/android-sdk-windows/docs/reference/android/os/Handler.html#sendMessage(android.os.Message))([Message](file:///D:/android/android-sdk-windows/docs/reference/android/os/Message.html) msg)方法实现发送消息的操作。在初始化Handler对象时重写的handleMessage()方法是用来来接收Messgae并进行相关操作的。
+    
 2.传递Runnable对象，用于通过Handler绑定的消息队列，安排不同操作的执行顺序。
     Handler对象在进行初始化的时候，会默认的自动绑定消息队列。利用类post方法，可以将Runnable对象发送到消息队列中，按照队列的机制按顺序执行不同的Runnable对象中的run方法。
     
@@ -699,7 +703,7 @@ That's all.
 * 尽量用Handler来处理UIThread和别的Thread之间的交互
 * BroadcastReceiver要执行耗时操作时应启动一个service，将耗时操作交给service来完成
 
-** ANR排错一般有三种类型：**
+** ANR排错一般有三种类型: **
 KeyDispatchTimeout(5 seconds) --主要是类型按键或触摸事件在特定时间内无响应
 BroadcastTimeout(10 seconds) --BroadcastReceiver在特定时间内无法处理完成
 ServiceTimeout(20 secends) --小概率事件 Service在特定的时间内无法处理完成
@@ -728,13 +732,14 @@ startActivity(intent);
 
 *区别*
 
-** 显式启动**：直接指定要跳转的Activity类名，不用过滤，效率高，适用于同一个应用中的不同Activity跳转
-** 隐式启动**：需要过滤，相对耗时，但可以找到所有之匹配的应用。适用于不同应用之间的Activity跳转。
+** 显式启动 **：直接指定要跳转的Activity类名，不用过滤，效率高，适用于同一个应用中的不同Activity跳转
+
+** 隐式启动 **：需要过滤，相对耗时，但可以找到所有之匹配的应用。适用于不同应用之间的Activity跳转。
 
 ---
 ###广播几种接收方式, 广播有几种类型, 区别
 
-* #####接收方式
+* ##### 接收方式
 注册广播的方式一般有两种，在代码中注册称为动态注册；在AndroidManifest.xml中注册称为静态注册。
 *** 动态注册：***
 定义一个类继承自BroadcastReceiver，并复写父类的onReceive()方法，在activity中实例化自定义广播，使用Context的**registerReceiver(BroadcastReceiver, IntentFilter, String, Handler)**方法注册广播
