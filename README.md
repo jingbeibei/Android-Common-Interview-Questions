@@ -503,6 +503,7 @@ onResume()是onPause()（通常是当前的acitivty被暂停了，比如被另�
 
 
 ![Paste_Image.png](http://upload-images.jianshu.io/upload_images/2314135-e24a86bed77d1705.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 引申：经测试，onPause()方法在弹出Dialog时不会被调用，而在被另一个透明或者Dialog样式的Activity覆盖时才会被调用。
 附activity生命周期：
 
@@ -523,6 +524,7 @@ onDestory()：销毁时调用
 ```
 
 ![activity.png](http://upload-images.jianshu.io/upload_images/2314135-57591e25232d1410.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ** Fragment生命周期：**
 ```
 onAttach()：和宿主Activity建立关联时调用
@@ -543,6 +545,7 @@ onDetach()：与宿主Activity解除关联时调用
 ** Fragment与Activity生命周期对比图：**
 
 ![Paste_Image.png](http://upload-images.jianshu.io/upload_images/2314135-bae480de789f439c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 **Fragment生命周期分析：**
 1. 当一个fragment被创建的时候，它会经历以下状态.
 onAttach()
